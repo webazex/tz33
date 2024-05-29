@@ -1,0 +1,15 @@
+.arts-grid {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 20px;
+}
+.arts-grid__art-item > img {width: 100%;}
+@media (max-width: 540px) {
+    .arts-grid {grid-template-columns: repeat(2, 1fr);}
+}
+@media (max-width: 450px) {
+    .arts-grid {grid-template-columns: repeat(1, 1fr);}
+}

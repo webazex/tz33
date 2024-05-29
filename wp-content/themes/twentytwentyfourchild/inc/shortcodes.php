@@ -38,6 +38,7 @@ add_shortcode('arts', function ($atts){
 					$html .= '</div>';
 					$html .= '<a href="'.$art['link'].'">'.__('Show this art', 'ttfc').'</a>';
 					$html .= '</div>';
+					$html .= '</div>';
 				}
 				$html .= '</div>';
 			}else{
@@ -53,4 +54,3 @@ add_shortcode('arts', function ($atts){
 	}
 	return $html;
 });
-

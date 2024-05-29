@@ -117,7 +117,9 @@ function getAnyPosts( array $data, array $filters = [], $authors = ''): array {
 		if(is_array($metaQuery)){
 			$args['meta_query'] = $metaQuery;
 		}
+
 		//В рамках цього тестового $paginate завжди false;
+
 		$obj = new WP_Query( $args );
 		if(!empty($obj->posts)){
 			foreach ($obj->posts as $PostItemObj){
