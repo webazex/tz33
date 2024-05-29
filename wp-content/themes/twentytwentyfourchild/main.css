@@ -5,8 +5,16 @@
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
     grid-gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    margin: 15px 0;
 }
 .arts-grid__art-item > img {width: 100%;}
+.body__art-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 @media (max-width: 540px) {
     .arts-grid {grid-template-columns: repeat(2, 1fr);}
 }

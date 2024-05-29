@@ -126,7 +126,7 @@ function getAnyPosts( array $data, array $filters = [], $authors = ''): array {
 				$src = (get_the_post_thumbnail_url($PostItemObj->ID, 'full') !== false)?
 					get_the_post_thumbnail_url($PostItemObj->ID, 'full') :
 				getPlaceholderSrc();
-				$dataAuthor = get_field('author', $PostItemObj->ID);
+				$dataAuthor = get_field('author-с', $PostItemObj->ID);
 				$ret[$PostItemObj->ID] = [
 					'id' => $PostItemObj->ID,
 					'title' => $PostItemObj->post_title,
