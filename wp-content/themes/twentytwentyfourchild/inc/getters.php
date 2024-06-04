@@ -95,15 +95,29 @@ function getAnyPosts( array $data, array $filters = [], $authors = ''): array {
 						'relation' => $rel
 					];
 				}
+				//fix terms
+//				var_dump($tax);
+//				var_dump($terms);
+				$termIds = get_terms([
+					'name' => $terms,
+					'taxonomy' => $tax
+				]);
+				$ids = [];
+				if(!is_wp_error($termIds) AND !empty($termIds)){
+					foreach ($termIds as $termId){
+						if(is_object($termId) AND !is_wp_error($termId)){
+							$ids[] = intval($termId->term_id);
+						}
+					}
+				}
 				$taxQuery[] = [
 					'taxonomy' => $tax,
-					'field'    => 'id',
-					'terms'    => ( is_array( $terms ) ) ? $terms : [ $terms ]
+					'field'    => 'іd',
+					'terms'    => ( is_array( $ids ) ) ? $ids : [ $ids ]
 				];
-
 				//check if rel not setted
 				if ( empty( $taxQuery['relation'] ) ) {
-					$taxQuery = [
+					$taxQuery[] = [
 						'relation' => 'AND'
 					];
 				}
@@ -119,7 +133,6 @@ function getAnyPosts( array $data, array $filters = [], $authors = ''): array {
 		}
 
 		//В рамках цього тестового $paginate завжди false;
-
 		$obj = new WP_Query( $args );
 		if(!empty($obj->posts)){
 			foreach ($obj->posts as $PostItemObj){
